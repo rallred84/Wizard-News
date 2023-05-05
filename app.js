@@ -73,7 +73,7 @@ app.get('/posts/:id', (req, res, next) => {
   }
 });
 
-const PORT = 1338;
+const { PORT = 1338 } = process.env;
 
 app.use(express.static('public'));
 
