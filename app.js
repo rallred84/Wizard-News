@@ -78,10 +78,8 @@ const { PORT = 1338 } = process.env;
 
 app.use(express.static('public'));
 
-app.get('/:anyExtension', (req, res, next) => {
-  if (req.params.anyExtension !== 'posts/') {
-    next('This extension does not exist. Check your URL and try again');
-  }
+app.use((req, res, next) => {
+  next('This extension does not exist. Check your URL and try again');
 });
 
 app.use((err, req, res, next) => {
